@@ -13,7 +13,7 @@ import { Profile } from './types';
 type AuthState = { user: User | null; profile: Profile | null; loading: boolean };
 const AuthContext = createContext<AuthState>({ user: null, profile: null, loading: true });
 
-// Provedor de estado de autenticação e perfil do usuário
+// provedor de estado de autenticação e perfil do usuário
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AuthState>({ user: null, profile: null, loading: true });
 
@@ -117,14 +117,14 @@ export async function signUp(email: string, password: string) {
   return cred;
 }
 
-// Autentica usuário com e-mail e senha
+// autentica usuário com e-mail e senha
 export const signIn = (email: string, password: string) =>
   signInWithEmailAndPassword(auth, email.trim(), password);
 
 // Encerra a sessão atual
 export const signOut = () => fbSignOut(auth);
 
-// Retorna mensagem amigável para códigos de erro do Firebase Auth
+// retorna mensagem amigável para códigos de erro do Firebase Auth
 export function authErrorMessage(e: unknown): string {
   const code = (e as { code?: string })?.code ?? '';
   switch (code) {

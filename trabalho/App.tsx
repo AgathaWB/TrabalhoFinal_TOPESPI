@@ -51,7 +51,7 @@ function Root() {
       {!isFirebaseConfigured && (
         <View style={styles.banner}>
           <Text style={styles.bannerText}>
-            ⚠️ Firebase não configurado. Adicione suas chaves no arquivo src/firebase.ts para sincronizar na nuvem.
+             Firebase não configurado.
           </Text>
         </View>
       )}
