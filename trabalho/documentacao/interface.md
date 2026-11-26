@@ -39,7 +39,7 @@ Possui dois estados visuais dependendo se o usuário já tem parceiro:
 - **Com dupla:**
   - E-mail do parceiro, card com contagem e barra de progresso dourada do amigo.
   - Lista somente leitura dos hábitos do parceiro hoje (`✅` ou `⬜`).
-  - Botão **👋 Dar um empurrão** (desabilitado se já enviou hoje ou se o amigo já completou tudo).
+  - Botão **Dar um empurrão** (desabilitado se já enviou hoje ou se o amigo já completou tudo).
   - Botão **Desfazer dupla** com confirmação.
 
 ---
