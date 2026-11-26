@@ -1,7 +1,7 @@
 # Visão do Projeto — AetherDuo
 
 ## 1. Resumo
-O **AetherDuo** é um aplicativo simples de organização de hábitos diários com foco em parceria. Desenvolvido como trabalho final de **Tópicos Especiais** (3º ano do Ensino Médio Técnico), ele permite que duas pessoas acompanhem os hábitos uma da outra em tempo real e enviem incentivos diários.
+O **AetherDuo** é um aplicativo simples de organização de hábitos diários com foco em parceria. Desenvolvido como trabalho final de **Tópicos Especiais**, ele permite que duas pessoas acompanhem os hábitos uma da outra em tempo real e enviem incentivos diários.
 
 ---
 
