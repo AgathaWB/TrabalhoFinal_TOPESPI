@@ -62,7 +62,7 @@ flowchart LR
 - **Ator:** Usuário
 - **Fluxo principal:**
   1. Na aba **✦ Dupla**, o usuário visualiza quantos hábitos o parceiro concluiu hoje e quais ainda faltam.
-  2. Caso o parceiro ainda tenha hábitos pendentes, o usuário toca em **👋 Dar um empurrão**.
+  2. Caso o parceiro ainda tenha hábitos pendentes, o usuário toca em **Dar um empurrão**.
   3. O parceiro recebe um aviso amarelo no topo da aba **Hábitos** e pode tocar nele para dispensar.
 
 ### UC06 — Desfazer Dupla ou Sair da Conta
