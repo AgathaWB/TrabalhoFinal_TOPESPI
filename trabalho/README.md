@@ -4,14 +4,14 @@ Aplicativo de acompanhamento de hábitos diários em dupla, desenvolvido para o 
 
 ---
 
-## 🎯 Sobre o Projeto
+##  Sobre o Projeto
 
 Manter a constância em hábitos saudáveis (como estudar, beber água ou praticar exercícios) é muito mais fácil quando há companhia e incentivo mútuo.  
 O **AetherDuo** resolve esse problema conectando **duas pessoas**: cada usuário gerencia seus próprios hábitos diários e acompanha, em tempo real, o progresso da sua dupla — podendo até enviar um **"empurrão"** amigável quando o parceiro ainda não concluiu as tarefas do dia.
 
 ---
 
-## ✨ Principais Funcionalidades
+##  Principais Funcionalidades
 
 - **Cadastro e Login:** criação de conta e autenticação com e-mail e senha via Firebase Authentication.
 - **Gerenciamento de Hábitos (Aba *Hábitos*):**
@@ -23,12 +23,12 @@ O **AetherDuo** resolve esse problema conectando **duas pessoas**: cada usuário
   - Enviar convite pelo e-mail de outro usuário cadastrado.
   - Aceitar, recusar ou cancelar convites pendentes.
   - Acompanhar a barra de progresso e a lista de hábitos do parceiro em tempo real.
-  - Enviar um **empurrão diário** (`👋 Dar um empurrão`) para incentivar o parceiro.
+  - Enviar um **empurrão diário** (`Dar um empurrão`) para incentivar o parceiro.
   - Desfazer a dupla a qualquer momento.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **React Native** + **Expo (SDK 54)** — execução multiplataforma (Web, Android e iOS).
 - **TypeScript** — tipagem estática para maior segurança no código.
@@ -37,7 +37,7 @@ O **AetherDuo** resolve esse problema conectando **duas pessoas**: cada usuário
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 - `App.tsx` — componente principal, navegação por abas e controle de sessão.
 - `src/firebase.ts` — conexão com o Firebase e instâncias `auth` e `db`.
@@ -55,7 +55,7 @@ O **AetherDuo** resolve esse problema conectando **duas pessoas**: cada usuário
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Pré-requisitos
 - **Node.js** (versão 18 ou superior)
@@ -76,7 +76,7 @@ O **AetherDuo** resolve esse problema conectando **duas pessoas**: cada usuário
 
 ---
 
-## 🎤 Roteiro Rápido para Apresentação
+## Roteiro Rápido para Apresentação
 
 1. **Introdução (30s):** explicar a ideia do app (criar hábitos diários com incentivo em dupla) e mostrar as tecnologias (Expo + React Native + Firebase).
 2. **Demonstração ao vivo:**
