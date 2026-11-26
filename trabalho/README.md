@@ -1,6 +1,6 @@
 # AetherDuo ✦ Hábitos em Dupla
 
-Aplicativo de acompanhamento de hábitos diários em dupla, desenvolvido para o trabalho final da disciplina de **Tópicos Especiais** (3º ano do Ensino Médio Técnico).
+Aplicativo de acompanhamento de hábitos diários em dupla, desenvolvido para o trabalho final da disciplina de **Tópicos Especiais**.
 
 ---
 
