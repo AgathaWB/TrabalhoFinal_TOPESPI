@@ -39,7 +39,7 @@ export default function AuthScreen() {
         {!isFirebaseConfigured && (
           <View style={styles.configNotice}>
             <Text style={styles.configNoticeText}>
-              ⚠️ Banco de dados não configurado: adicione suas credenciais do Firebase no arquivo src/firebase.ts para conectar.
+              Banco de dados não configurado.
             </Text>
           </View>
         )}
