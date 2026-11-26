@@ -19,32 +19,32 @@ import {
 import { colors } from '../theme';
 import { Profile } from '../types';
 
-export default function DuoScreen({ profile, today }: { profile: Profile; today: string }) {
-  return (
-    <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
-      <Text style={styles.h1}>Sua dupla</Text>
-      {profile.partnerUid ? (
-        <PartnerPanel profile={profile} partnerUid={profile.partnerUid} today={today} />
+export default function DuoScreen({ profile, today }: { profile: Profile; today: string }) {//data, propriedades e perfil 
+  return (//visual 
+    <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled"> //rodagem e adaptação (fecha o teclado tbm)
+      <Text style={styles.h1}>Sua dupla</Text> 
+      {profile.partnerUid ? (//verificação se há parceria
+        <PartnerPanel profile={profile} partnerUid={profile.partnerUid} today={today} /> //renderiza se tiver 
       ) : (
-        <ConnectPanel profile={profile} />
+        <ConnectPanel profile={profile} /> //renderiza 
       )}
     </ScrollView>
   );
 }
 
 // Painel de convites quando o usuário ainda não tem dupla
-function ConnectPanel({ profile }: { profile: Profile }) {
+function ConnectPanel({ profile }: { profile: Profile }) {//declara componente connectPanel para qm não tem duo
   const [email, setEmail] = useState('');
-  const [busy, setBusy] = useState(false);
-  const incoming = useIncomingInvites(profile.emailLower);
-  const outgoing = useOutgoingInvites(profile.uid);
+  const [busy, setBusy] = useState(false);//Block vários clicks depois de enviar email 
+  const incoming = useIncomingInvites(profile.emailLower); //procura no db os convites recebidos desse e-mail 
+  const outgoing = useOutgoingInvites(profile.uid);//procura no db os convites enviados desse e-mail
 
-  async function invite() {
+  async function invite() {//enviar convite 
     setBusy(true);
-    try {
-      await sendInvite(profile, email);
+    try {//tentativa segura 
+      await sendInvite(profile, email);//envia
       setEmail('');
-    } catch (e) {
+    } catch (e) {//pop-up aviso de erro
       notify('Não foi possível convidar', e instanceof Error ? e.message : 'Tente de novo.');
     } finally {
       setBusy(false);
@@ -69,7 +69,7 @@ function ConnectPanel({ profile }: { profile: Profile }) {
         <Button title="Enviar convite" onPress={invite} disabled={busy || !email.includes('@')} />
       </Card>
 
-      {incoming.length > 0 && <Text style={styles.section}>Convites recebidos</Text>}
+      {incoming.length > 0 && <Text style={styles.section}>Convites recebidos</Text>}// se tiver convites lista
       {incoming.map((inv) => (
         <Card key={inv.id} style={{ marginBottom: 10 }}>
           <Text style={styles.cardTitle}>{inv.fromEmail} quer formar dupla com você</Text>
@@ -93,7 +93,7 @@ function ConnectPanel({ profile }: { profile: Profile }) {
         </Card>
       ))}
 
-      {outgoing.length > 0 && <Text style={styles.section}>Convites enviados</Text>}
+      {outgoing.length > 0 && <Text style={styles.section}>Convites enviados</Text>} //lista com opção de cancelar 
       {outgoing.map((inv) => (
         <Card key={inv.id} style={{ marginBottom: 10 }}>
           <Text style={styles.cardTitle}>Aguardando {inv.toEmail}…</Text>
@@ -109,18 +109,18 @@ function ConnectPanel({ profile }: { profile: Profile }) {
 }
 
 // Painel de progresso e ações da dupla formada
-function PartnerPanel({ profile, partnerUid, today }: { profile: Profile; partnerUid: string; today: string }) {
+function PartnerPanel({ profile, partnerUid, today }: { profile: Profile; partnerUid: string; today: string }) {// quando há dupla, busca os dados
   const partner = usePartner(partnerUid);
   const habits = useHabits(partnerUid);
   const checked = useChecks(partnerUid, today);
-  const nudgeSent = useNudgeSent(profile.uid, partnerUid, today);
+  const nudgeSent = useNudgeSent(profile.uid, partnerUid, today);//se o empurrão já foi enviado 
 
-  const done = habits.filter((h) => checked.has(h.id)).length;
-  const allDone = habits.length > 0 && done === habits.length;
+  const done = habits.filter((h) => checked.has(h.id)).length;// calcula quantos concluídos
+  const allDone = habits.length > 0 && done === habits.length;// e cê já foi tudo concluído.
 
   function confirmLeave() {
     confirmAction('Desfazer dupla', 'Vocês deixam de ver o progresso um do outro.', 'Desfazer', () => {
-      leaveDuo(profile).catch((e) => notify('Erro', String(e)));
+      leaveDuo(profile).catch((e) => notify('Erro', String(e)));//desfaz 
     });
   }
 
@@ -134,11 +134,11 @@ function PartnerPanel({ profile, partnerUid, today }: { profile: Profile; partne
             ? 'Seu amigo ainda não cadastrou hábitos'
             : `Seu amigo concluiu ${done} de ${habits.length} hábitos hoje`}
         </Text>
-        <ProgressBar done={done} total={habits.length} color={colors.gold} />
+        <ProgressBar done={done} total={habits.length} color={colors.gold} /> //barra de progresso da dupla
         {allDone && <Text style={styles.congrats}>Missão cumprida por hoje! 🏔️</Text>}
       </Card>
 
-      {habits.map((h) => {
+      {habits.map((h) => {// ciclo de verificação com linha de emoji para hábito do parceiro
         const ok = checked.has(h.id);
         return (
           <View key={h.id} style={styles.partnerHabit}>
@@ -149,13 +149,13 @@ function PartnerPanel({ profile, partnerUid, today }: { profile: Profile; partne
       })}
 
       <Button
-        title={nudgeSent ? 'Empurrão enviado hoje ✓' : '👋 Dar um empurrão'}
+        title={nudgeSent ? 'Empurrão enviado hoje ✓' : '👋 Dar um empurrão'}// desativa se já foi enviado hoje ou não há hábitos
         variant="gold"
         disabled={nudgeSent || allDone || habits.length === 0}
         onPress={() => sendNudge(profile, partnerUid, today).catch((e) => notify('Erro', String(e)))}
         style={{ marginTop: 16 }}
       />
-      <Button title="Desfazer dupla" variant="danger" onPress={confirmLeave} style={{ marginTop: 8 }} />
+      <Button title="Desfazer dupla" variant="danger" onPress={confirmLeave} style={{ marginTop: 8 }} />// aciona função de confirmação
     </View>
   );
 }
