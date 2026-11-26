@@ -76,14 +76,3 @@ O **AetherDuo** resolve esse problema conectando **duas pessoas**: cada usuário
 
 ---
 
-## Roteiro Rápido para Apresentação
-
-1. **Introdução (30s):** explicar a ideia do app (criar hábitos diários com incentivo em dupla) e mostrar as tecnologias (Expo + React Native + Firebase).
-2. **Demonstração ao vivo:**
-   - Abrir duas sessões lado a lado (ex.: janela normal e aba anônima do navegador).
-   - Mostrar o cadastro/login na tela inicial.
-   - Na **Conta A**, cadastrar 2 ou 3 hábitos e marcar um deles para mostrar a barra de progresso subindo.
-   - Na aba **✦ Dupla**, enviar um convite para o e-mail da **Conta B**.
-   - Na **Conta B**, aceitar o convite e mostrar que as duas telas passam a exibir os hábitos da dupla em tempo real.
-   - Da **Conta A**, clicar em **Dar um empurrão** e mostrar o aviso aparecendo imediatamente na **Conta B**.
-3. **Encerramento:** mostrar rapidamente o Firebase Console (Authentication e Firestore) provando que os dados estão salvos na nuvem.
