@@ -171,7 +171,7 @@ export async function setChecked(uid: string, habitId: string, date: string, che
 export async function sendInvite(me: Profile, toEmailRaw: string) {
   const toEmail = toEmailRaw.trim().toLowerCase();
   if (!toEmail || !toEmail.includes('@')) throw new Error('Informe um e-mail válido.');
-  if (toEmail === me.emailLower) throw new Error('Você não pode convidar a si mesmo 🙂');
+  if (toEmail === me.emailLower) throw new Error('Você não pode convidar a si mesmo!');
   await setDoc(doc(db, 'invites', `${me.uid}__${toEmail}`), {
     fromUid: me.uid,
     fromEmail: me.email,
